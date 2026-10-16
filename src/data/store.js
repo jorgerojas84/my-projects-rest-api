@@ -31,7 +31,7 @@ export function listProjects() {
   return projects.map(clone)
 }
 
-export function getProjectBy(id) {
+export function getProjectById(id) {
   const project = projects.find((item) => item.id === id)
   return project ? clone(project) : null
 }
