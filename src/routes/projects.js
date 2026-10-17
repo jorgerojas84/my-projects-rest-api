@@ -52,7 +52,7 @@ projects.get('/:id', (c) => {
   return sendResource(c, project)
 })
 
-projects.path('/:id', async (c) => {
+projects.patch('/:id', async (c) => {
   const id = parseIdParam(c.req.param('id'))
   const payload = await parseJsonBody(c)
   const details = validateProjectPatch(payload)

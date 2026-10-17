@@ -52,7 +52,7 @@ export function createProject(input) {
   return clone(project)
 }
 
-export function updatedProject(id, input) {
+export function updateProject(id, input) {
   const index = projects.findIndex((item) => item.id === id)
 
   if (index === -1) {

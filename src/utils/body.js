@@ -1,6 +1,6 @@
 import { ApiError } from './errors.js'
 
-export async function parseJsonBdoy(c) {
+export async function parseJsonBody(c) {
   try {
     return await c.req.json()
   } catch {
