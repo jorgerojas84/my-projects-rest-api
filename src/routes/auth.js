@@ -60,7 +60,7 @@ auth.post('/register', async (c) => {
   )
 })
 
-auth.post('login', async (c) => {
+auth.post('/login', async (c) => {
   const payload = await parseJsonBody(c)
   const details = validateLogin(payload)
 
@@ -160,7 +160,7 @@ auth.post('/logout', async (c) => {
     )
   }
 
-  const db = generateRefreshToken(c.env.DB)
+  const db = getDb(c.env.DB)
   const tokenHash = await hashToken(payload.refreshToken)
 
   await deleteSessionByTokenHash(db, tokenHash)
