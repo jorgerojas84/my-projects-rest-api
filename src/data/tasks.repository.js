@@ -37,7 +37,7 @@ export async function createTask(db, projectId, input) {
   return created
 }
 
-export async function updatedTask(db, id, input) {
+export async function updateTask(db, id, input) {
   const values = {
     updatedAt: nowIso(),
     ...('title' in input ? { title: input.title.trim() } : {}),

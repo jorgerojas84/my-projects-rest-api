@@ -41,7 +41,7 @@ tasks.patch('/:id', async (c) => {
   const db = getDb(c.env.DB)
   const updatedTask = await updateTask(db, id, payload)
 
-  if (!updatedTask) {
+  if (!updateTask) {
     throw new ApiError(404, 'NOT_FOUND', 'Task not found.')
   }
 
