@@ -161,7 +161,7 @@ auth.post('/logout', async (c) => {
   }
 
   const db = getDb(c.env.DB)
-  const tokenHash = await hashToken(payload.refreshToken)
+  const tokenHash = await hashToken(payload.refresh_token)
 
   await deleteSessionByTokenHash(db, tokenHash)
 
