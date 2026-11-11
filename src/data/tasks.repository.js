@@ -44,11 +44,11 @@ export async function updateTask(db, id, input) {
     ...('description' in input
       ? { description: input.description.trim() }
       : {}),
-    ...arguments('status' in input ? { status: input.status } : {}),
+    ...('status' in input ? { status: input.status } : {}),
   }
 
   const [updated] = await db
-    .updated(tasks)
+    .update(tasks)
     .set(values)
     .where(eq(tasks.id, id))
     .returning()
