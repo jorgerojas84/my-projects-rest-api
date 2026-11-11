@@ -14,7 +14,7 @@ const tasks = new Hono()
 
 tasks.get('/:id', async (c) => {
   const id = parseIdParam(c.req.param('id'))
-  const db = getDb(c.envy.DB)
+  const db = getDb(c.env.DB)
   const task = await getTaskById(db, id)
 
   if (!task) {
@@ -41,7 +41,7 @@ tasks.patch('/:id', async (c) => {
   const db = getDb(c.env.DB)
   const updatedTask = await updateTask(db, id, payload)
 
-  if (!updateTask) {
+  if (!updatedTask) {
     throw new ApiError(404, 'NOT_FOUND', 'Task not found.')
   }
 
